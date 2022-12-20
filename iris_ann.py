@@ -38,13 +38,13 @@ from tensorflow import keras
 
 model = tf.keras.models.Sequential()
 
-#Add the first hidden layer
-model.add(keras.layers.Dense(64,         #Number of nodes
-                        input_shape=(4,), #Number of input variables
-                        name='Hidden-Layer-1', #Logical name
-                        activation='relu'))    #activation function
 
-#Add a second hidden layer
+model.add(keras.layers.Dense(64,        
+                        input_shape=(4,),
+                        name='Hidden-Layer-1', 
+                        activation='relu'))    
+
+
 model.add(keras.layers.Dense(64,
                               name='Hidden-Layer-2',
                               activation='relu'))
@@ -62,8 +62,7 @@ history=model.fit(x_train,
           y_train,
           batch_size=15,
           epochs=100,
-          verbose=1,
-          validation_split=0.2)
+          verbose=1)
 
 model.evaluate(x_test,y_test)
 
